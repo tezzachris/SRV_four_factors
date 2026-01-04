@@ -1,21 +1,112 @@
-# A multi-factor model for improved commodity pricing: Calibration and an application to the oil market
-Quantitative Finance 
+A Multi-Factor Model for Improved Commodity Pricing
 
-Authors: Christian Tezza, Luca Vincenzo Ballestra 
+Calibration and an Application to the Oil Market
+Quantitative Finance
 
-The models we consider here all possess a quasi-affine formula for the pricing of commodity futures. 
+Authors: Christian Tezza, Luca Vincenzo Ballestra
 
-Which factors? Typically in the literature: log-spot commodity price, convenience yield, interest rate, volatility of log-price, long-term mean of log-price
-Which commodities? We considered mainly crude-oil, copper, natural gas
+Overview
 
-## The Estimation Method
+This repository contains MATLAB code for the estimation and calibration of multi-factor commodity pricing models with quasi-affine futures price representations. The framework is designed for empirical applications in commodity markets and supports estimation when the spot price is either observed or unobserved.
 
-In commodity markets future prices at several maturities are quoted. From this prices we can extrapolate the factors/latent variables I described above. The estimation method is usually based on the Kalman filter, and so on likelihood maximation. 
-Remark: in some markets the spot commodity price is not quoted. 
+The models considered admit a quasi-affine solution for commodity futures prices, where futures prices are expressed as exponential–affine (or quasi-affine) functions of latent state variables.
 
-In general terms, the code is developed in Matlab language and consists of the following functions:
-(a) Starter: provides randomized starter points for the coefficients 
-(b) Likelihood prediction error decomposition: casts the model into its state-space form, performs Kalman filtering and computes the log-likelihood.
-(c) Obtain the MLEs by repeating (a) and (b) to avoid local minima
+Model Structure
 
-Note: For the optmization we rely on Matlab built-in optimizers (e.g. fmincon)
+The state vector typically includes the following factors, commonly used in the commodity pricing literature:
+
+Log spot commodity price
+
+Convenience yield
+
+Interest rate
+
+Volatility of the log-price
+
+Long-term mean of the log-price
+
+The exact specification may vary across model versions.
+
+Commodities Considered
+
+The empirical applications focus primarily on:
+
+Crude oil
+
+Copper
+
+Natural gas
+
+Estimation Methodology
+
+In commodity markets, futures prices are quoted at multiple maturities. These prices are used to infer the latent state variables underlying the model.
+
+The estimation approach is based on:
+
+A state-space representation of the model
+
+Kalman filtering
+
+Maximum likelihood estimation (MLE) via the prediction error decomposition
+
+Remark: In several commodity markets the spot price is not directly observable. The state-space formulation naturally accommodates this feature.
+
+Code Description
+
+The code is written in MATLAB and consists of .m functions implementing the estimation and pricing routines.
+
+Main Components
+
+Starter
+Generates randomized initial parameter values to reduce sensitivity to starting points and mitigate convergence to local optima.
+
+Log-Likelihood (Kalman Filter)
+Casts the model into state-space form, performs Kalman filtering, and computes the log-likelihood using the prediction error decomposition.
+
+Estimation Routine
+Repeats the likelihood maximization from multiple randomized starting points and selects the parameter vector that maximizes the likelihood.
+
+Affine Coefficients
+The affine (or quasi-affine) coefficients of the futures price function are obtained by solving a system of ordinary differential equations using Runge–Kutta methods.
+
+Optimization
+
+Parameter estimation is carried out using MATLAB built-in optimization routines, such as:
+
+fmincon
+
+Bound constraints are used to ensure admissibility of the model parameters.
+
+File Structure
+/code
+  starter.m              % Randomized starting values
+  loglik_kalman.m        % Kalman filter log-likelihood
+  affine_rungekutta.m    % Runge–Kutta solver for affine coefficients
+  estimate_model.m       % Main estimation routine
+
+How to Run
+
+Set parameter bounds and optimization options in estimate_model.m
+
+Load futures price data and maturities
+
+Run:
+
+estimate_model
+
+
+The routine returns the maximum-likelihood parameter estimates and filtered state variables
+
+Requirements
+
+MATLAB
+
+Optimization Toolbox
+
+Reference
+
+If you use this code, please cite:
+
+Tezza, C., and Ballestra, L. V.
+A Multi-Factor Model for Improved Commodity Pricing: Calibration and an Application to the Oil Market,
+Quantitative Finance
