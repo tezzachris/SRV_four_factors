@@ -16,25 +16,18 @@ The models considered admit a quasi-affine solution for commodity futures prices
 
 ## Model Structure
 
-The state vector typically includes the following factors, commonly used in the commodity pricing literature:
+The state vector includes (in order) the following factors, commonly used in the commodity pricing literature:
 
 - Log spot commodity price  
 - Convenience yield  
 - Interest rate  
-- Volatility of the log-price  
-- Long-term mean of the log-price  
-
-The exact specification may vary across model versions.
+- Volatility of the log-price
 
 ---
 
 ## Commodities Considered
 
-The empirical applications focus primarily on:
-
-- Crude oil  
-- Copper  
-- Natural gas  
+The empirical application focus primarily on crude oil but can extended to other commodities typically used in the literature such as gold, natural gas and copper.
 
 ---
 
@@ -48,7 +41,7 @@ The estimation approach is based on:
 - Kalman filtering  
 - Maximum likelihood estimation (MLE) via the prediction error decomposition  
 
-**Remark:** In several commodity markets the spot price is not directly observable. The state-space formulation naturally accommodates this feature.
+**Remark:** In several commodity markets the spot price is not directly observable. The state-space formulation accommodates this feature. 
 
 ---
 
@@ -74,13 +67,44 @@ The code is written in MATLAB and consists of `.m` functions implementing the es
 
 ## Optimization
 
-Parameter estimation is carried out using MATLAB built-in optimization routines, such as:
+Parameter estimation is carried out using MATLAB optimization routines, such as:
 
 - `fmincon`
 
-Bound constraints are used to ensure admissibility of the model parameters.
+Bound constraints are used to ensure admissibility of the model parameters (correlations, variances).
+
+Note: Optimization Toolbox is required.
 
 ---
 
 ## File Structure
+
+/code
+starter.m % Randomized starting values
+loglik_kalman.m % Kalman filter log-likelihood
+affine_rungekutta.m % Runge–Kutta solver for affine coefficients
+estimate_model.m % Main estimation routine
+
+
+---
+
+## How to Run in MATLAB
+
+1. Set parameter bounds and optimization options in `estimate_model.m`
+2. Load futures price data and maturities
+3. Run:
+   ```matlab
+   estimate_model
+
+-- 
+
+## Reference
+
+If you use this code, please cite:
+
+Ballestra, L. V. and Tezza, C.
+"A Multi-Factor Model for Improved Commodity Pricing: Calibration and an Application to the Oil Market"
+Quantitative Finance
+
+
 
