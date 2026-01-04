@@ -79,21 +79,10 @@ Note: Optimization Toolbox is required.
 
 ## File Structure
 
-/code
-starter.m % Randomized starting values
-loglik_kalman.m % Kalman filter log-likelihood
-affine_rungekutta.m % Runge–Kutta solver for affine coefficients
-estimate_model.m % Main estimation routine
-
-
----
-
-## How to Run in MATLAB
-
-1. Set parameter bounds and optimization options in `estimate_model.m`
-2. Load futures price data and maturities
-3. Run: estimate_model
-
+start_param.m % Randomized starting values
+loglik.m % Kalman filter log-likelihood
+RungeKuttaFuture.m % Runge–Kutta solver for affine coefficients used in log-future price formula
+main.m % Main estimation routine
 -- 
 
 ## Reference
