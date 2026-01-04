@@ -1,6 +1,6 @@
-## A multi-factor model for improved commodity pricing: Calibration and an application to the oil market
-# Quantitative Finance
-# Authors: Christian Tezza, Luca Vincenzo Ballestra
+# A multi-factor model for improved commodity pricing: Calibration and an application to the oil market
+Quantitative Finance
+Authors: Christian Tezza, Luca Vincenzo Ballestra
 
 The models we consider here all possess a quasi-affine formula for the pricing of commodity futures. 
 
