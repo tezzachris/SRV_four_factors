@@ -79,10 +79,10 @@ Note: Optimization Toolbox is required.
 
 ## File Structure
 
-start_param.m % Randomized starting values
-loglik.m % Kalman filter log-likelihood
-RungeKuttaFuture.m % Runge–Kutta solver for affine coefficients used in log-future price formula
-main.m % Main estimation routine
+- `start_param.m % Randomized starting values`
+- `loglik.m % Kalman filter log-likelihood`
+- `RungeKuttaFuture.m % Runge–Kutta solver for affine coefficients used in log-future price formula`
+- `main.m % Main estimation routine`
 -- 
 
 ## Reference
