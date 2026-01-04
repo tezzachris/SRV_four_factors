@@ -92,19 +92,17 @@ estimate_model.m % Main estimation routine
 
 1. Set parameter bounds and optimization options in `estimate_model.m`
 2. Load futures price data and maturities
-3. Run:
-   ```matlab
-   estimate_model
+3. Run: estimate_model
 
 -- 
 
 ## Reference
 
 If you use this code, please cite:
-
-Ballestra, L. V. and Tezza, C.
-"A Multi-Factor Model for Improved Commodity Pricing: Calibration and an Application to the Oil Market"
-Quantitative Finance
+   ```matlab
+    Ballestra, L. V. and Tezza, C.
+    "A Multi-Factor Model for Improved Commodity Pricing: Calibration and an Application to the Oil Market"
+    Quantitative Finance
 
 
 
