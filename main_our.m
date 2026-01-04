@@ -7,7 +7,7 @@
 
 yt = log([tav.trc2,tav.trc4,tav.trc6,tav.trc8,tav.trc10]); %log-future prices time series 
 TF = ([2,4,6,8,10])/12; %maturity futures
-dt = 1/252;  %time step 
+dt = 1/252;  %daily time step 
 nrunge = 2000; %discretization steps runge kutta
 
 %Estimation
