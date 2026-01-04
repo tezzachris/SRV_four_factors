@@ -12,11 +12,12 @@ nrunge = 2000; %discretization steps runge kutta
 
 %Estimation
 
-[theta0] = start(yt, TF, nrunge, dt);
+[theta0] = start_param(yt, TF, nrunge, dt);
 nparam = length(theta0);
 opt2 = optimoptions('fmincon', ...
                     'Display','off', ...
                     'Algorithm', 'sqp');   
+                    
 Aineq = []; bineq = []; Aeq = []; beq = []; 
 nonlcon = [] ;
 lb = repelem( -10 , nparam); %lower bound
